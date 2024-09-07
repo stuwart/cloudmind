@@ -16,8 +16,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-        {/* 可以重复上面的卡片结构来添加更多文章 */}
       </div>
 
       <div className="mt-12 text-center">
