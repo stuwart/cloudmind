@@ -12,7 +12,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
     }
     return NextResponse.json(post)
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 })
+    console.error('获取帖子时出错:', error)
+    return NextResponse.json({ error: '获取帖子失败' }, { status: 500 })
   }
 }
 
@@ -33,7 +34,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     })
     return NextResponse.json(post)
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to update post' }, { status: 500 })
+    console.error('更新帖子时出错:', error)
+    return NextResponse.json({ error: '更新帖子失败' }, { status: 500 })
   }
 }
 
@@ -42,8 +44,9 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     await prisma.post.delete({
       where: { id: Number(params.id) }
     })
-    return NextResponse.json({ message: 'Post deleted successfully' })
+    return NextResponse.json({ message: '帖子删除成功' })
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to delete post' }, { status: 500 })
+    console.error('删除帖子时出错:', error)
+    return NextResponse.json({ error: '删除帖子失败' }, { status: 500 })
   }
 }

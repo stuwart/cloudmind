@@ -13,7 +13,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -27,13 +27,13 @@ const formSchema = z.object({
   content: z.string().min(1, '内容不能为空'),
   published: z.boolean(),
   category: z.string().min(1, '请输入分类'),
-  tags: z.string(),
+  tags: z.string()
 })
 
 export default function CreatePost() {
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([])
   const [filteredCategories, setFilteredCategories] = useState<string[]>([])
-  const [tags, setTags] = useState<{ id: number; name: string }[]>([])
+  // const [tags, setTags] = useState<{ id: number; name: string }[]>([])
 
   const router = useRouter()
 
@@ -44,8 +44,8 @@ export default function CreatePost() {
       content: '',
       published: false,
       category: '',
-      tags: '',
-    },
+      tags: ''
+    }
   })
 
   useEffect(() => {
@@ -56,15 +56,15 @@ export default function CreatePost() {
         setCategories(data)
       }
     }
-    const fetchTags = async () => {
-      const response = await fetch('/api/tags')
-      if (response.ok) {
-        const data = await response.json()
-        setTags(data)
-      }
-    }
+    // const fetchTags = async () => {
+    //   const response = await fetch('/api/tags')
+    //   if (response.ok) {
+    //     const data = await response.json()
+    //     setTags(data)
+    //   }
+    // }
     fetchCategories()
-    fetchTags()
+    // fetchTags()
   }, [])
 
   const handleCategoryChange = (value: string) => {
@@ -89,7 +89,7 @@ export default function CreatePost() {
       const categoryResponse = await fetch('/api/category', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: values.category }),
+        body: JSON.stringify({ name: values.category })
       })
       const categoryData = await categoryResponse.json()
 
@@ -104,7 +104,7 @@ export default function CreatePost() {
       const tagResponse = await fetch('/api/tags', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ names: tagNames }),
+        body: JSON.stringify({ names: tagNames })
       })
       if (!tagResponse.ok) {
         throw new Error('处理标签失败')
@@ -118,8 +118,8 @@ export default function CreatePost() {
         body: JSON.stringify({
           ...values,
           categoryId: categoryData.id,
-          tags: tagResults.map((tag: { id: number }) => tag.id),
-        }),
+          tags: tagResults.map((tag: { id: number }) => tag.id)
+        })
       })
 
       if (postResponse.ok) {

@@ -1,5 +1,5 @@
 'use client'
-import { login, signup } from './actions'
+import { signup } from './actions'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -9,7 +9,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -24,7 +24,7 @@ const userSchema = z.object({
   password: z
     .string()
     .min(8, 'Password must be at least 8 characters long') // 密码至少8个字符
-    .max(100, 'Password must be at most 100 characters long'), // 密码最多100个字符
+    .max(100, 'Password must be at most 100 characters long') // 密码最多100个字符
 })
 
 export default function LoginPage() {
@@ -33,8 +33,8 @@ export default function LoginPage() {
     defaultValues: {
       userName: '',
       email: '',
-      password: '',
-    },
+      password: ''
+    }
   })
   const onSubmit = async (data: z.infer<typeof userSchema>) => {
     const formData = new FormData()
