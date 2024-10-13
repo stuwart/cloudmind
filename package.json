@@ -47,6 +47,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/google-one-tap": "^1.2.6",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^18",

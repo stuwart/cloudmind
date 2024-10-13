@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import ReactMarkdown from 'react-markdown'
 import prisma from '@/lib/prisma'
 
@@ -11,7 +10,8 @@ async function getPost(id: string) {
   return post
 }
 
-export async function PostPage({ params }: { params: { id: string } }) {
+// 将 PostPage 改为默认导出
+export default async function PostPage({ params }: { params: { id: string } }) {
   const post = await getPost(params.id)
 
   return (
@@ -24,16 +24,9 @@ export async function PostPage({ params }: { params: { id: string } }) {
   )
 }
 
-// 可选：添加一个加载状态组件
-function Loading() {
-  return <div className="container mx-auto px-4 py-8">加载中...</div>
-}
+// // 可选：添加一个加载状态组件
+// function Loading() {
+//   return <div className="container mx-auto px-4 py-8">加载中...</div>
+// }
 
-// 如果需要，可以将整个页面包裹在 Suspense 中
-export default function PostPageWrapper({ params }: { params: { id: string } }) {
-  return (
-    <Suspense fallback={<Loading />}>
-      <PostPage params={params} />
-    </Suspense>
-  )
-}
+// 如果需要 Suspense，可以在父组件中添加
