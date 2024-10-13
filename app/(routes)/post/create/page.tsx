@@ -56,15 +56,8 @@ export default function CreatePost() {
         setCategories(data)
       }
     }
-    // const fetchTags = async () => {
-    //   const response = await fetch('/api/tags')
-    //   if (response.ok) {
-    //     const data = await response.json()
-    //     setTags(data)
-    //   }
-    // }
+
     fetchCategories()
-    // fetchTags()
   }, [])
 
   const handleCategoryChange = (value: string) => {
