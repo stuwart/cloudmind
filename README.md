@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CloudMind Blog
 
-## Getting Started
+CloudMind Blog 是一个使用 Next.js 构建的现代化博客平台。该项目采用了最新的 Web 开发技术和最佳实践,旨在提供一个高性能、可扩展且用户友好的博客系统。
 
-First, run the development server:
+## 主要特性
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. 使用 Next.js 14 框架,支持服务器端渲染和静态生成
+2. 采用 TypeScript 进行类型检查,提高代码质量和可维护性
+3. 使用 Tailwind CSS 进行样式设计,实现响应式布局
+4. 集成 Shadcn UI 组件库,提供美观一致的用户界面
+5. 使用 React Hook Form 和 Zod 进行表单处理和验证
+6. 集成 Supabase 进行身份认证和数据存储
+7. 支持 Google One Tap 登录功能
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 项目结构
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/`: 包含 Next.js 应用程序的主要路由和页面组件
+- `components/`: 存放可复用的 React 组件
+- `lib/`: 包含工具函数和通用逻辑
+- `utils/`: 存放辅助函数和工具类
+- `public/`: 静态资源文件夹
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 主要组件
 
-## Learn More
+1. LoginPage: 用户登录和注册页面
+2. OneTapComponent: 实现 Google One Tap 登录功能
+3. NavigationMenu: 网站导航菜单组件
+4. Form 相关组件: 用于构建和处理表单
 
-To learn more about Next.js, take a look at the following resources:
+## 开始使用
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 克隆仓库
+2. 安装依赖: `npm install`
+3. 运行开发服务器: `npm run dev`
+4. 在浏览器中打开 http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 部署
 
-## Deploy on Vercel
+项目可以轻松部署到 Vercel 平台。详细部署说明请参考 Next.js 官方文档。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 贡献
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+欢迎提交 Pull Requests 来改进这个项目。在提交之前,请确保遵循现有的代码风格并通过所有的测试。
+
+## 许可证
+
+本项目采用 MIT 许可证。详情请参见 LICENSE 文件。
