@@ -8,10 +8,10 @@ import { Badge } from '@/components/ui/badge'
 interface Post {
   id: number
   title: string
-  createdAt: string
+  createdAt: Date
   category: {
     name: string
-  }
+  } | null
 }
 
 export function PostList({ initialPosts }: { initialPosts: Post[] }) {
@@ -21,7 +21,7 @@ export function PostList({ initialPosts }: { initialPosts: Post[] }) {
   useEffect(() => {
     const category = searchParams.get('category')
     if (category) {
-      const filteredPosts = initialPosts.filter((post) => post.category.name === category)
+      const filteredPosts = initialPosts.filter((post) => post.category?.name === category)
       setPosts(filteredPosts)
     } else {
       setPosts(initialPosts)
@@ -41,7 +41,7 @@ export function PostList({ initialPosts }: { initialPosts: Post[] }) {
                 </Badge>
               </div>
               <p className="text-gray-600 mt-2">
-                发布时间: {new Date(post.createdAt).toLocaleDateString('zh-CN')}
+                发布时间: {post.createdAt.toLocaleDateString('zh-CN')}
               </p>
             </div>
           </Link>
