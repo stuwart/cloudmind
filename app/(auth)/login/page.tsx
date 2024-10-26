@@ -57,7 +57,12 @@ export default function LoginPage() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your password" {...field} className="w-full  h-10" />
+                  <Input
+                    type="password"
+                    placeholder="Your password"
+                    {...field}
+                    className="w-full  h-10"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -67,12 +72,7 @@ export default function LoginPage() {
             <Button formAction={signup} className="w-1/3 h-10 mx-3">
               Sign up
             </Button>
-            <Button
-              // onClick={() => onLogin(form.getValues())}
-              formAction={login}
-              variant="outline"
-              className="w-1/3 h-10 mx-3"
-            >
+            <Button formAction={login} variant="outline" className="w-1/3 h-10 mx-3">
               Log in
             </Button>
           </div>

@@ -1,19 +1,103 @@
-export default function Home() {
-  return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Welcome to CloudMind </h1>
+'use server'
+import { BellIcon, CalendarIcon, FileTextIcon, GlobeIcon, InputIcon } from '@radix-ui/react-icons'
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-semibold mb-2">文章标题</h2>
-            <p className="text-gray-600 mb-4">这里是文章摘要，简短介绍文章内容...</p>
-            <a href="#" className="text-blue-500 hover:underline">
-              阅读更多
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
+import { BentoCard, BentoGrid } from '@/components/ui/bento-grid'
+import Image from 'next/image'
+
+export default async function Home() {
+  const features = [
+    {
+      Icon: FileTextIcon,
+      name: 'Save your files',
+      description: 'We automatically save your files as you type.',
+      href: '/',
+      cta: 'Learn more',
+      background: (
+        <Image
+          src="/path-to-your-image.jpg"
+          alt="Background"
+          width={100}
+          height={100}
+          className="absolute -right-20 -top-20 opacity-60"
+        />
+      ),
+      className: 'lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3'
+    },
+    {
+      Icon: InputIcon,
+      name: 'Full text search',
+      description: 'Search through all your files in one place.',
+      href: '/',
+      cta: 'Learn more',
+      background: (
+        <Image
+          src="/path-to-your-image.jpg"
+          alt="Background"
+          width={100}
+          height={100}
+          className="absolute -right-20 -top-20 opacity-60"
+        />
+      ),
+      className: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3'
+    },
+    {
+      Icon: GlobeIcon,
+      name: 'Multilingual',
+      description: 'Supports 100+ languages and counting.',
+      href: '/',
+      cta: 'Learn more',
+      background: (
+        <Image
+          src="/path-to-your-image.jpg"
+          alt="Background"
+          width={100}
+          height={100}
+          className="absolute -right-20 -top-20 opacity-60"
+        />
+      ),
+      className: 'lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4'
+    },
+    {
+      Icon: CalendarIcon,
+      name: 'Calendar',
+      description: 'Use the calendar to filter your files by date.',
+      href: '/',
+      cta: 'Learn more',
+      background: (
+        <Image
+          src="/path-to-your-image.jpg"
+          alt="Background"
+          width={100}
+          height={100}
+          className="absolute -right-20 -top-20 opacity-60"
+        />
+      ),
+      className: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2'
+    },
+    {
+      Icon: BellIcon,
+      name: 'Notifications',
+      description: 'Get notified when someone shares a file or mentions you in a comment.',
+      href: '/',
+      cta: 'Learn more',
+      background: (
+        <Image
+          src="/path-to-your-image.jpg"
+          alt="Background"
+          width={100}
+          height={100}
+          className="absolute -right-20 -top-20 opacity-60"
+        />
+      ),
+      className: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4'
+    }
+  ]
+
+  return (
+    <BentoGrid className="lg:grid-rows-3">
+      {features.map((feature) => (
+        <BentoCard key={feature.name} {...feature} />
+      ))}
+    </BentoGrid>
   )
 }
