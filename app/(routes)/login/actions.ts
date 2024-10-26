@@ -1,46 +1,54 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
+import { headers } from 'next/headers'
+import { encodedRedirect } from '@/utils/utils'
 
 export async function login(formData: FormData) {
-  const supabase = createClient()
+  const email = formData.get('email') as string
+  const password = formData.get('password') as string
+  const supabase = await createClient()
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-  }
-
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  })
 
   if (error) {
-    redirect('/error')
+    return encodedRedirect('error', '/sign-in', error.message)
   }
 
-  revalidatePath('/', 'layout')
-  redirect('/')
+  return redirect('/protected')
 }
 
 export async function signup(formData: FormData) {
-  const supabase = createClient()
+  const email = formData.get('email')?.toString()
+  const password = formData.get('password')?.toString()
+  const supabase = await createClient()
+  const origin = (await headers()).get('origin')
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
+  if (!email || !password) {
+    return { error: 'Email and password are required' }
   }
 
-  const { error } = await supabase.auth.signUp(data)
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: `${origin}/auth/callback`
+    }
+  })
 
   if (error) {
-    redirect('/error')
+    console.error(error.code + ' ' + error.message)
+    return encodedRedirect('error', '/sign-up', error.message)
+  } else {
+    return encodedRedirect(
+      'success',
+      '/sign-up',
+      'Thanks for signing up! Please check your email for a verification link.'
+    )
   }
-
-  revalidatePath('/', 'layout')
-  redirect('/')
 }
