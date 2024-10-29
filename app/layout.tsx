@@ -56,11 +56,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             `
           }}
         />
+        <Script async defer src="https://accounts.google.com/gsi/client" />
       </head>
       <body
         className={cn('min-h-screen bg-background font-sans antialiased m-4', fontSans.variable)}
       >
-        <div className="mx-8 flex justify-between">
+        <div className="flex justify-between container mx-auto">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>

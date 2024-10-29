@@ -1,4 +1,4 @@
-import { signOutAction } from '@/app/(auth)/login/actions'
+import { signOutAction } from '@/app/(auth)/actions'
 
 import Link from 'next/link'
 

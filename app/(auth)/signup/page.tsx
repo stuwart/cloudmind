@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import GoogleSignIn from '@/components/OAuth/googleSignIn'
 
 const userSchema = z.object({
   email: z.string().email('Invalid email address'), // 验证邮箱格式
@@ -24,7 +23,7 @@ const userSchema = z.object({
     .max(100, 'Password must be at most 100 characters long') // 密码最多100个字符
 })
 
-export default function LoginPage() {
+export default function SignupPage() {
   const form = useForm<z.infer<typeof userSchema>>({
     resolver: zodResolver(userSchema),
     defaultValues: {
@@ -35,7 +34,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center h-3/4 w-full flex-col">
-      <h1>Login</h1>
+      <h1>Sign up</h1>
       <Form {...form}>
         <form className="space-y-4 w-full max-w-sm  p-4">
           <FormField
@@ -73,15 +72,6 @@ export default function LoginPage() {
             <Button formAction={login} variant="outline" className="w-1/3 h-10 mx-3">
               Log in
             </Button>
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">或</span>
-              </div>
-            </div>
-            <GoogleSignIn />
           </div>
         </form>
       </Form>
