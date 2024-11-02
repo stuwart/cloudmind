@@ -156,6 +156,11 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
+"@csstools/convert-colors@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-2.0.0.tgz#6dd323583b40cfe05aaaca30debbb30f26742bbf"
+  integrity sha512-P7BVvddsP2Wl5v3drJ3ArzpdfXMqoZ/oHOV/yFiGFb3JQr9Z9UXZ9tnHAKJsO89lfprR1F9ExW3Yij21EjEBIA==
+
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
@@ -2850,6 +2855,13 @@ foreground-child@^3.1.0:
     cross-spawn "^7.0.0"
     signal-exit "^4.0.1"
 
+framer-motion@^11.11.11:
+  version "11.11.11"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.11.11.tgz#3c058c97ec134afdce77caa20396f0fd82d63b7d"
+  integrity sha512-tuDH23ptJAKUHGydJQII9PhABNJBpB+z0P1bmgKK9QFIssHGlfPd6kxMq00LSKwE27WFsb2z0ovY0bpUyMvfRw==
+  dependencies:
+    tslib "^2.4.0"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -4020,6 +4032,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
+next-themes@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.3.0.tgz#b4d2a866137a67d42564b07f3a3e720e2ff3871a"
+  integrity sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==
+
 next@^14.2.13:
   version "14.2.13"
   resolved "https://registry.yarnpkg.com/next/-/next-14.2.13.tgz#32da2ee0afbe729e2d4a467c3570def90e1c974d"
@@ -4482,6 +4499,13 @@ react-hook-form@^7.53.0:
   version "7.53.0"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.53.0.tgz#3cf70951bf41fa95207b34486203ebefbd3a05ab"
   integrity sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==
+
+react-icon-cloud@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/react-icon-cloud/-/react-icon-cloud-4.1.4.tgz#a6aa7a2d6f48a0eaacb091ca9fe830568a840c0e"
+  integrity sha512-hc8yGNU98V6ObPdeNIt75M016xGMxbTWqB4l6exo1uwE5bvFU095unMbX2K3YBKYhGKEV3c7fSmq3jD3cRWX+A==
+  dependencies:
+    "@csstools/convert-colors" "^2.0.0"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
