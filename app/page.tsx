@@ -7,42 +7,42 @@ import TypingAnimation from '@/components/ui/typing-animation'
 import { cn } from '@/lib/utils'
 import { Newspaper, Shell, BadgeInfo, FolderDot } from 'lucide-react'
 interface Item {
-  name: string
-  description: string
-  icon: string
-  color: string
-  time: string
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+  time: string;
 }
 
 let notifications = [
   {
-    name: '偏我来时不逢春',
+    name: '勇往直前',
     description: '无需赞颂苦难，苦难自会开花',
     time: '15d ago',
     icon: '💸',
-    color: '#00C9A7'
+    color: '#00C9A7',
   },
   {
     name: '珍惜当下',
     description: '最美好的是现在，最珍贵的是眼前',
     time: '10d ago',
     icon: '🍟',
-    color: '#FFB800'
+    color: '#FFB800',
   },
   {
     name: '既来之，则安之',
     description: '既然无法改变，那就欣然接受',
     time: '5d ago',
     icon: '💬',
-    color: '#FF3D71'
+    color: '#FF3D71',
   },
   {
     name: '做自己',
     description: '做自己想做的事，做自己想做的人',
     time: '2d ago',
     icon: '🗞️',
-    color: '#1E86FF'
-  }
+    color: '#1E86FF',
+  },
 ]
 
 notifications = Array.from({ length: 10 }, () => notifications).flat()
@@ -63,7 +63,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
         <div
           className="flex size-10 items-center justify-center rounded-2xl"
           style={{
-            backgroundColor: color
+            backgroundColor: color,
           }}
         >
           <span className="text-lg">{icon}</span>
@@ -84,43 +84,43 @@ export default async function Home() {
   const files = [
     {
       name: 'Vue',
-      body: 'Vue is a progressive JavaScript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.'
+      body: 'Vue is a progressive JavaScript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.',
     },
     {
       name: 'React',
-      body: 'React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.'
+      body: 'React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.',
     },
     {
       name: 'Next.js',
-      body: 'Next.js is a framework for building server-rendered React applications. It is maintained by Vercel and a community of individual developers and companies.'
+      body: 'Next.js is a framework for building server-rendered React applications. It is maintained by Vercel and a community of individual developers and companies.',
     },
     {
       name: 'Tailwind',
-      body: 'Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.'
+      body: 'Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.',
     },
     {
       name: 'TypeScript',
-      body: 'TypeScript is a programming language that is a superset of JavaScript. It is maintained by Microsoft and a community of individual developers and companies.'
+      body: 'TypeScript is a programming language that is a superset of JavaScript. It is maintained by Microsoft and a community of individual developers and companies.',
     },
     {
       name: 'Python',
-      body: 'Python is a programming language that is widely used for web development, data analysis, and artificial intelligence.'
+      body: 'Python is a programming language that is widely used for web development, data analysis, and artificial intelligence.',
     },
     {
       name: 'Java',
-      body: 'Java is a programming language that is widely used for building enterprise applications.'
+      body: 'Java is a programming language that is widely used for building enterprise applications.',
     },
     {
       name: 'Go',
-      body: 'Go is a programming language that is widely used for building enterprise applications.'
-    }
+      body: 'Go is a programming language that is widely used for building enterprise applications.',
+    },
   ]
   const features = [
     {
       Icon: Newspaper,
       name: 'Notes',
       description: 'My notes on learning new technologies.',
-      href: '#',
+      href: '/notes',
       cta: 'Read more',
       className: 'col-span-3 lg:col-span-1',
       background: (
@@ -147,13 +147,13 @@ export default async function Home() {
             </figure>
           ))}
         </Marquee>
-      )
+      ),
     },
     {
       Icon: Shell,
       name: 'Thoughts',
       description: 'Some thoughts on life.',
-      href: '#',
+      href: '/thoughts',
       cta: 'Learn more',
       className: 'col-span-3 lg:col-span-2',
       background: (
@@ -162,46 +162,40 @@ export default async function Home() {
             <Notification {...item} key={idx} />
           ))}
         </AnimatedList>
-      )
+      ),
     },
     {
       Icon: FolderDot,
       name: 'Projects & Works',
       description: 'Some projects I have worked on.',
-      href: '#',
+      href: '/projects',
       cta: 'Learn more',
       className: 'col-span-3 lg:col-span-2',
-      background: <></>
+      background: <></>,
     },
     {
       Icon: BadgeInfo,
       name: 'About',
       description: 'More about me and some friends',
       className: 'col-span-3 lg:col-span-1',
-      href: '#',
+      href: '/about',
       cta: 'Learn more',
       background: (
         <TypingAnimation
           className="text-4xl font-bold text-gray-500 dark:text-white relative top-[130px]"
           text="Info & Resource"
         />
-      )
-    }
+      ),
+    },
   ]
 
   return (
     <div>
-      <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden  bg-[#7baeff] ">
+      <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#60a5fa]/80 to-[#93c5fd]/80 backdrop-blur-md dark:from-[#3b82f6]/70 dark:to-[#60a5fa]/70">
         <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#fdfbfbe4] to-[#ebedee] bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
           Cloudmind
         </span>
-        <Particles
-          className="absolute inset-0"
-          quantity={300}
-          ease={100}
-          color={'#ffffff'}
-          refresh
-        />
+        <Particles className="absolute inset-0" quantity={300} ease={100} color={'#ffffff'} refresh />
       </div>
       <div className="mx-auto w-2/3 relative top-[-50px]">
         <BentoGrid>

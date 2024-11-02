@@ -25,17 +25,17 @@ export async function POST(request: Request) {
     const tags =
       body.tags && Array.isArray(body.tags) && body.tags.length > 0
         ? {
-            connect: body.tags
-              .map((id: string) => {
-                const parsedId = parseInt(id)
-                if (isNaN(parsedId)) {
-                  console.error(`Invalid tag ID: ${id}`)
-                  return null
-                }
-                return { id: parsedId }
-              })
-              .filter(Boolean),
-          }
+          connect: body.tags
+            .map((id: string) => {
+              const parsedId = parseInt(id)
+              if (isNaN(parsedId)) {
+                console.error(`Invalid tag ID: ${id}`)
+                return null
+              }
+              return { id: parsedId }
+            })
+            .filter(Boolean),
+        }
         : undefined
 
     console.log('Processed tags:', tags)
